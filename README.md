@@ -72,8 +72,10 @@ Create these **before** you start building. Email verification can take a few mi
   Work or school Google accounts sometimes have AI Studio switched off by the administrator.
 - [ ] **A GitHub account**: sign up at [github.com/signup](https://github.com/signup).
   You can choose **Continue with Google** to make it faster. **Verify your email**: GitHub won't let you create projects until you do.
+  📖 Step-by-step guides: [GitHub's official sign-up guide](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) · [Codecademy's guide with screenshots](https://www.codecademy.com/article/how-to-set-up-a-github-account)
 - [ ] **A Vercel account**: go to [vercel.com/signup](https://vercel.com/signup), choose the **Hobby** (free, personal) plan, and click **Continue with GitHub**.
   Signing up with GitHub saves a step later.
+  📖 Step-by-step guide: [Vercel's official sign-up guide](https://vercel.com/docs/accounts) (see "Sign up with a Git provider")
 
 ### ✅ Your business content
 
@@ -247,6 +249,8 @@ If Vercel isn't working for you, AI Studio has its own **Publish** button (top r
 - [AI Studio troubleshooting](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio): fixes for common AI Studio problems
 - [Publishing from AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying): the Plan B route
 - [Creating a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github): GitHub's official sign-up guide
+- [How to set up a GitHub account (Codecademy)](https://www.codecademy.com/article/how-to-set-up-a-github-account): beginner walkthrough with screenshots
+- [Creating a Vercel account](https://vercel.com/docs/accounts): Vercel's official sign-up guide, including signing up with GitHub
 - [Deploying on Vercel](https://vercel.com/docs/getting-started-with-vercel): Vercel's getting-started guide
 - [Vercel can't find my GitHub repository](https://vercel.com/kb/guide/unable-to-find-github-repository): fix for repositories missing on the import page
 - [Vercel custom domains](https://vercel.com/docs/domains/set-up-custom-domain): connect your own domain name
