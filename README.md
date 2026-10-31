@@ -2,10 +2,10 @@
 
 **A free, step-by-step guide to creating and publishing a landing page for your business, with no coding.**
 
-You'll use **Google AI Studio** to build the page by describing it in plain English, **GitHub** to store it, and **Render** to put it live on the internet. By the end you'll have a real link (like `your-business.onrender.com`) you can share on WhatsApp, Instagram and Google.
+You'll use **Google AI Studio** to build the page by describing it in plain English, **GitHub** to store it, and **Vercel** to put it live on the internet. By the end you'll have a real link (like `your-shop.vercel.app`) you can share on WhatsApp, Instagram and Google.
 
 > **Time needed:** 45–90 minutes the first time
-> **Cost:** Free (a custom domain like `yourbusiness.com` is optional and paid)
+> **Cost:** Free (a custom domain like `yourshop.com` is optional and paid)
 > **Skill needed:** If you can fill a form and copy-paste, you can do this.
 
 ---
@@ -18,7 +18,7 @@ You'll use **Google AI Studio** to build the page by describing it in plain Engl
 3. [Step 2: Refine it until you love it](#step-2-refine-it-until-you-love-it)
 4. [Step 3: Run the pre-publish check](#step-3-run-the-pre-publish-check)
 5. [Step 4: Save it to GitHub](#step-4-save-it-to-github)
-6. [Step 5: Publish it on Render](#step-5-publish-it-on-render)
+6. [Step 5: Publish it on Vercel](#step-5-publish-it-on-vercel)
 7. [Step 6: Make changes later](#step-6-make-changes-later)
 8. [Troubleshooting](#troubleshooting)
 9. [Optional next steps](#optional-next-steps)
@@ -41,18 +41,18 @@ You'll use **Google AI Studio** to build the page by describing it in plain Engl
 
 ```
  ┌────────────────────┐      ┌──────────────┐      ┌──────────────┐
- │  Google AI Studio  │ ───► │    GitHub    │ ───► │    Render    │ ───► 🌍 Your live website
+ │  Google AI Studio  │ ───► │    GitHub    │ ───► │    Vercel    │ ───► 🌍 Your live website
  │  (builds the page) │      │ (stores it)  │      │ (publishes)  │
  └────────────────────┘      └──────────────┘      └──────────────┘
 ```
 
 - **Google AI Studio** is where you describe your website and Gemini (Google's AI) writes it for you.
-- **GitHub** is like Google Drive for website code. Render reads your website from there.
-- **Render** takes the code from GitHub and puts it on the internet for free.
+- **GitHub** is like Google Drive for website code. Vercel reads your website from there.
+- **Vercel** takes the code from GitHub and puts it on the internet for free. It works out the technical settings by itself, so publishing is mostly one click.
 
 Once these three are connected, every change you make in AI Studio can go live in a couple of minutes.
 
-> **Why Render and not Vercel?** Vercel's free plan is for personal, non-commercial projects only. A business website is commercial. Render's free static site hosting doesn't have that restriction.
+> **About Vercel's free plan:** The free **Hobby** plan is meant for personal, non-commercial projects. It suits a simple personal page for a small shop. If your site later grows into a bigger commercial operation (online payments, a team, client work), look at [Vercel's plans](https://vercel.com/pricing) or another host.
 
 ---
 
@@ -72,7 +72,7 @@ Create these **before** you start building. Email verification can take a few mi
   Work or school Google accounts sometimes have AI Studio switched off by the administrator.
 - [ ] **A GitHub account**: sign up at [github.com/signup](https://github.com/signup).
   You can choose **Continue with Google** to make it faster. **Verify your email**: GitHub won't let you create projects until you do.
-- [ ] **A Render account**: go to [render.com](https://render.com), click **Get Started**, and choose **Sign up with GitHub**.
+- [ ] **A Vercel account**: go to [vercel.com/signup](https://vercel.com/signup), choose the **Hobby** (free, personal) plan, and click **Continue with GitHub**.
   Signing up with GitHub saves a step later.
 
 ### ✅ Your business content
@@ -138,20 +138,14 @@ Can't describe what you want? Turn on **annotation mode** in the preview, highli
 
 ## Step 3: Run the pre-publish check
 
-AI Studio can build big apps with servers and AI features. You only need a simple static page, so this one prompt cleans the project up before you publish it.
+AI Studio can build big apps with servers and AI features. You only need a simple page, so this one prompt cleans the project up before you publish it.
 
 1. Copy the prompt from [`prompts/03-pre-deploy-check.md`](prompts/03-pre-deploy-check.md).
 2. Paste it into the AI Studio chat and send.
-3. Read the reply. Note down the **Build Command** and **Publish Directory** it confirms. They should be:
-
-| Setting | Value |
-|---|---|
-| Build Command | `npm install && npm run build` |
-| Publish Directory | `dist` |
-
+3. Read the reply. It should confirm the project builds with Vite into a folder called `dist`.
 4. Check the preview still looks right.
 
-> ✅ **Checkpoint:** AI Studio has confirmed the build settings and your preview still works.
+> ✅ **Checkpoint:** AI Studio has confirmed the clean-up and your preview still works.
 
 ---
 
@@ -162,7 +156,7 @@ AI Studio can build big apps with servers and AI features. You only need a simpl
 2. Click to **connect your GitHub account**. A GitHub window opens: sign in and click **Authorize**.
 3. Choose **Create a new repository**.
    - **Name:** use your business name with dashes, e.g. `glow-and-grace-salon`.
-   - **Visibility:** **Public** or **Private** both work with Render. Private keeps your code hidden.
+   - **Visibility:** **Public** or **Private** both work with Vercel. Private keeps your code hidden.
 4. Confirm. AI Studio pushes (uploads) your project to GitHub.
 5. Open [github.com](https://github.com), click your profile picture → **Your repositories**, and click your new repository.
 
@@ -179,30 +173,22 @@ AI Studio can build big apps with servers and AI features. You only need a simpl
 
 ---
 
-## Step 5: Publish it on Render
+## Step 5: Publish it on Vercel
 
-1. Go to **[dashboard.render.com](https://dashboard.render.com)** and sign in (use **GitHub**).
-   If asked to create a workspace or pick a plan, choose the **free / Hobby** option.
-2. Click **+ New** (top right) → **Static Site**.
-3. Under **Connect a repository**, find your repository and click **Connect**.
-   - **Don't see it?** Click **Configure GitHub** / **Configure account**, choose **All repositories** (or select yours), and click **Save**. Then return to Render.
-4. Fill in the settings:
+1. Go to **[vercel.com/new](https://vercel.com/new)** and sign in (use **Continue with GitHub**).
+2. Under **Import Git Repository**, find your repository and click **Import**.
+   - **Don't see it?** Click **Adjust GitHub App Permissions** (or **Configure GitHub App**), give Vercel access to that repository, then come back to this page.
+3. On the next screen, check that **Framework Preset** says **Vite**. You don't need to change anything else.
+   - The **Project Name** becomes your web address, so make it your shop's name, e.g. `glow-and-grace-salon`.
+4. Click **Deploy**.
+5. Wait 1–2 minutes. When you see **Congratulations!** and a picture of your site, it's live.
+6. Click the picture (or **Continue to Dashboard** → **Visit**). Your link looks like `https://glow-and-grace-salon.vercel.app`. If that name was taken, Vercel adds a few extra characters.
 
-| Field | What to type |
-|---|---|
-| **Name** | Your business name, e.g. `glow-and-grace-salon`. This becomes part of your link. |
-| **Branch** | `main` (leave as is) |
-| **Root Directory** | Leave **empty** |
-| **Build Command** | `npm install && npm run build` |
-| **Publish Directory** | `dist` |
-
-5. Click **Create Static Site** (or **Deploy Static Site**).
-6. Watch the logs. After 1–3 minutes you'll see **Your site is live** / a green **Live** label.
-7. Click the link at the top of the page. It looks like `https://glow-and-grace-salon.onrender.com`. If that name was taken, Render adds a few extra characters.
-
-> ✅ **Checkpoint:** Your website opens on your phone using the `onrender.com` link. Test the WhatsApp button from your phone too.
+> ✅ **Checkpoint:** Your website opens on your phone using the `vercel.app` link. Test the WhatsApp button from your phone too.
 
 🎉 **You're live!** Share the link on your WhatsApp status, Instagram bio and Google Business Profile.
+
+**Framework Preset doesn't say Vite?** Set **Framework Preset** to **Vite**. If you see build settings, they should be: Build Command `npm run build`, Output Directory `dist`.
 
 ---
 
@@ -213,7 +199,7 @@ Your site updates itself whenever GitHub changes:
 1. Open your app in AI Studio: **Build** → find your project in your apps list.
 2. Ask for changes in the chat as before.
 3. Open **Settings → GitHub** and **push / sync** your changes. AI Studio writes the description of the change for you.
-4. Render notices the change and rebuilds automatically. Refresh your site in 2–3 minutes.
+4. Vercel notices the change and republishes automatically. Refresh your site in 1–2 minutes.
 
 > **Tip:** Change prices, add a new service, or swap photos any time you like. No developer needed.
 
@@ -228,23 +214,23 @@ Your site updates itself whenever GitHub changes:
 | **The preview is blank or shows an error** | Type in the chat: `The preview is showing an error. Please fix any build issues with the current code.` |
 | **The AI changed things I didn't ask for** | Type: `Undo your last change.` Then ask again, more specifically. |
 | **GitHub verification email hasn't arrived** | Check spam/promotions. Resend from GitHub's settings. |
-| **My repository doesn't show up in Render** | In Render, click **Configure GitHub**/**Configure account** and give Render access to that repository. |
-| **Render build failed** (red **Failed** label) | Open **Logs**, copy the red error lines, and paste them into AI Studio using the "If Render's build fails" prompt in [`03-pre-deploy-check.md`](prompts/03-pre-deploy-check.md#if-renders-build-fails-later). Push to GitHub again. |
-| **Site is live but the page is blank** | Run the [pre-publish check](prompts/03-pre-deploy-check.md) again, push to GitHub, and wait for Render to rebuild. Double-check the **Publish Directory** in Render (Settings) is `dist`. |
+| **My repository doesn't show up in Vercel** | Click **Adjust GitHub App Permissions** on the import page and give Vercel access to that repository. |
+| **Vercel deployment failed** (red **Error**) | Open the deployment, click **Build Logs**, copy the red lines, and paste them into AI Studio using the prompt in [`03-pre-deploy-check.md`](prompts/03-pre-deploy-check.md#if-vercels-deployment-fails-later). Push to GitHub again. |
+| **Site is live but the page is blank** | Run the [pre-publish check](prompts/03-pre-deploy-check.md) again and push to GitHub. In Vercel, check **Settings → Build and Deployment**: Framework Preset should be **Vite** and Output Directory `dist`. |
 | **WhatsApp button opens the wrong number / error** | The number must be international format, no `+`, no spaces, no leading `0`: `https://wa.me/2348012345678`. |
-| **My changes aren't showing on the live site** | Check you pushed to GitHub (Step 6), then look in Render's **Events** tab for a new deploy. Hard-refresh your browser (Ctrl+Shift+R / Cmd+Shift+R). |
+| **My changes aren't showing on the live site** | Check you pushed to GitHub (Step 6), then look at the **Deployments** tab in Vercel for a new deployment. Hard-refresh your browser (Ctrl+Shift+R / Cmd+Shift+R). |
 
 **Still stuck?** In AI Studio you can describe the problem in plain English, or paste a screenshot, and ask Gemini to explain what's wrong.
 
 ### Plan B: publish straight from AI Studio
 
-If Render isn't working for you, AI Studio has its own **Publish** button (top right of Build mode). Eligible personal Google accounts can publish up to **two apps for free** without adding a card, and you can pick a link like `your-name.ai.studio`. Some accounts aren't eligible and will be asked to set up billing; if that happens, stick with Render. [Read Google's deployment guide](https://ai.google.dev/gemini-api/docs/aistudio-deploying).
+If Vercel isn't working for you, AI Studio has its own **Publish** button (top right of Build mode). Eligible personal Google accounts can publish up to **two apps for free** without adding a card, and you can pick a link like `your-name.ai.studio`. Some accounts aren't eligible and will be asked to set up billing; if that happens, stick with Vercel. [Read Google's deployment guide](https://ai.google.dev/gemini-api/docs/aistudio-deploying).
 
 ---
 
 ## Optional next steps
 
-- **Get your own domain** (e.g. `glowandgrace.com.ng`): buy one from a domain registrar, then follow [Render's custom domain guide](https://render.com/docs/custom-domains). Render's free Hobby workspace includes 2 custom domains with free HTTPS.
+- **Get your own domain** (e.g. `glowandgrace.com.ng`): buy one from a domain registrar, then follow [Vercel's custom domain guide](https://vercel.com/docs/domains/set-up-custom-domain). HTTPS is set up for you.
 - **Get found on Google Maps:** create a free [Google Business Profile](https://www.google.com/business/) and add your new website link.
 - **Add your link everywhere:** WhatsApp Business profile, Instagram bio, Facebook page, email signature, flyers (make a QR code for it).
 - **Check your speed:** paste your link into [PageSpeed Insights](https://pagespeed.web.dev) to see how fast it loads on mobile.
@@ -261,8 +247,9 @@ If Render isn't working for you, AI Studio has its own **Publish** button (top r
 - [AI Studio troubleshooting](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio): fixes for common AI Studio problems
 - [Publishing from AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying): the Plan B route
 - [Creating a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github): GitHub's official sign-up guide
-- [Render static sites](https://render.com/docs/static-sites): Render's official static site guide
-- [Render custom domains](https://render.com/docs/custom-domains): connect your own domain name
+- [Deploying on Vercel](https://vercel.com/docs/getting-started-with-vercel): Vercel's getting-started guide
+- [Vercel can't find my GitHub repository](https://vercel.com/kb/guide/unable-to-find-github-repository): fix for repositories missing on the import page
+- [Vercel custom domains](https://vercel.com/docs/domains/set-up-custom-domain): connect your own domain name
 
 ### Better prompts
 
@@ -289,8 +276,8 @@ If Render isn't working for you, AI Studio has its own **Publish** button (top r
 - [ ] Social media links open the right pages
 - [ ] No fake reviews or made-up numbers
 - [ ] I've shared the link on WhatsApp, Instagram and my Google Business Profile
-- [ ] I know how to make changes (AI Studio → push to GitHub → Render rebuilds)
+- [ ] I know how to make changes (AI Studio → push to GitHub → Vercel republishes)
 
 ---
 
-*Workshop: Build Your Business Website with AI. Guide current as of October 2026. Google, GitHub and Render update their screens often; if a button has moved, look for one with similar wording.*
+*Workshop: Build Your Business Website with AI. Guide current as of October 2026. Google, GitHub and Vercel update their screens often; if a button has moved, look for one with similar wording.*

@@ -1,36 +1,31 @@
 # Prompt 3: Pre-Publish Check
 
-Send this **once**, right before you connect GitHub. It makes sure your project will build cleanly on Render.
+Send this **once**, right before you connect GitHub. It makes sure your project will publish cleanly on Vercel.
 
 ```text
-I'm about to publish this website as a static site on Render. Please check and fix the project so that:
+I'm about to publish this website on Vercel as a simple static site. Please check and fix the project so that:
 
 1. It is frontend only, with no backend server code, no server.ts/server.js files, and no API keys or Gemini API calls. If any exist, remove them and remove anything in package.json that is only needed for them.
-2. package.json has a "build" script that runs "vite build", and the finished site is created in the "dist" folder.
+2. It is a standard Vite project: package.json has a "build" script that runs "vite build", and the finished site is created in the "dist" folder.
 3. All images and files the page uses are included in the project (no links to files that only exist inside AI Studio).
 4. All WhatsApp, phone, email and social media links are correct.
 5. There are no build or TypeScript errors.
 
-When you're done, tell me in one short list what you changed. Also confirm the Build Command and Publish Directory I should type into Render.
+When you're done, tell me in one short list what you changed.
 ```
 
 ## What you should hear back
 
-AI Studio should confirm something like:
+A short list of changes, and a confirmation that the project builds with Vite into the `dist` folder. That's what Vercel looks for, so you won't need to type any settings when you deploy.
 
-- **Build Command:** `npm install && npm run build`
-- **Publish Directory:** `dist`
+## If Vercel's deployment fails later
 
-If it gives you different values, use the ones it gives you in the Render step instead.
-
-## If Render's build fails later
-
-Copy the red error lines from Render's **Logs**, then send:
+Open the failed deployment in Vercel, click **Build Logs**, copy the red error lines, then send:
 
 ```text
-My Render static site build failed with this error. Please fix the project so "npm install && npm run build" works and outputs to "dist":
+My Vercel deployment failed with this error. Please fix the project so it builds with "npm run build" into the "dist" folder:
 
 [PASTE THE ERROR HERE]
 ```
 
-Then sync to GitHub again. Render will rebuild automatically.
+Then push to GitHub again. Vercel will try again automatically.
